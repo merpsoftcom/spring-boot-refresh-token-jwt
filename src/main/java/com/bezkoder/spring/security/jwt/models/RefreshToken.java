@@ -1,8 +1,9 @@
 package com.bezkoder.spring.security.jwt.models;
 
-import java.time.Instant;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+import java.time.Instant;
 
 @Entity(name = "refreshtoken")
 public class RefreshToken {
@@ -10,7 +11,7 @@ public class RefreshToken {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
 
-  @OneToOne
+  @ManyToOne
   @JoinColumn(name = "user_id", referencedColumnName = "id")
   private User user;
 
