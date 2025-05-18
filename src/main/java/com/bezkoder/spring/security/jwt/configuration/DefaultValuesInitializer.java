@@ -52,7 +52,8 @@ public class DefaultValuesInitializer implements CommandLineRunner {
                 .isInternal(true)
                 .email("superuser@gmail.com")
                 .password(passwordEncoder.encode(SUPER_PASSWORD))
-                .role(roleRepository.findByName(SUPER_ROLE).get())
+                .role(roleRepository.findByName(SUPER_ROLE)
+                    .orElseThrow(() -> new RuntimeException("Super User creation failed due to unavailable SuperRole in DB")))
             .build());
     }
 

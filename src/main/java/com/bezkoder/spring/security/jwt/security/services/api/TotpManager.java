@@ -1,0 +1,10 @@
+package com.bezkoder.spring.security.jwt.security.services.api;
+
+import dev.samstevens.totp.exceptions.QrGenerationException;
+
+public interface TotpManager {
+    String generateSecretKey();
+    String getQRCode(final String secret) throws QrGenerationException;
+    boolean verifyTotp(final String code, final String secret);
+}
+

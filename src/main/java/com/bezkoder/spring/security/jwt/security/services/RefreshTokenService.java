@@ -1,18 +1,17 @@
 package com.bezkoder.spring.security.jwt.security.services;
 
-import java.time.Instant;
-import java.util.Optional;
-import java.util.UUID;
-
+import com.bezkoder.spring.security.jwt.exception.TokenRefreshException;
+import com.bezkoder.spring.security.jwt.models.RefreshToken;
+import com.bezkoder.spring.security.jwt.repository.RefreshTokenRepository;
+import com.bezkoder.spring.security.jwt.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bezkoder.spring.security.jwt.exception.TokenRefreshException;
-import com.bezkoder.spring.security.jwt.models.RefreshToken;
-import com.bezkoder.spring.security.jwt.repository.RefreshTokenRepository;
-import com.bezkoder.spring.security.jwt.repository.UserRepository;
+import java.time.Instant;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class RefreshTokenService {
